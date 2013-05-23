@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="somitsolutions.training.android.androidpaint"
+      android:versionCode="7"
+      android:versionName="3.0"
+      android:installLocation="auto">
+      <uses-sdk android:minSdkVersion="14"
+          android:targetSdkVersion="15"/>
+         
+      
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:name=".AndroidPaint"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait">  
+        </activity>
+		<activity android:name=".ColorPicker"
+                android:screenOrientation="portrait">
+		    
+		    <intent-filter>
+                <action android:name="android.intent.action.COLORPICKER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.somitsolutions.color/vnd.somitsolutions.color-value" />
+            </intent-filter>
+		</activity>
+		<activity android:name="somitsolutions.training.android.androidpaint.FileList"
+		    android:screenOrientation="portrait"
+		    android:label="@string/app_name">
+		</activity>
+		<activity android:name="somitsolutions.training.android.androidpaint.viewImageActivity"
+		    android:screenOrientation="portrait"
+		    android:label="@string/app_name">
+		</activity>
+		
+		<activity android:name="somitsolutions.training.android.androidpaint.StartingActivity"
+		    android:label="@string/app_name"
+		    android:screenOrientation="portrait">
+		    <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+		</activity>
+    </application>
+</manifest> 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TableLayout android:id="@+id/TableLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" android:stretchColumns="1">
+
+<TableRow android:id="@+id/TableRowRed" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginBottom="80dp">
+<TextView android:text="% Red" android:id="@+id/TextViewRed" android:layout_width="wrap_content" android:layout_height="fill_parent"></TextView>
+<SeekBar android:id="@+id/SeekBarRed" android:layout_width="wrap_content" android:layout_height="fill_parent"></SeekBar>
+<EditText android:text="" android:id="@+id/EditTextRed" android:layout_width="wrap_content" android:layout_height="40dp"></EditText>
+</TableRow>
+
+<TableRow android:id="@+id/TableRowGreen" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginBottom="80dp">
+<TextView android:text="% Green" android:id="@+id/TextViewGreen" android:layout_width="wrap_content" android:layout_height="fill_parent"></TextView>
+<SeekBar android:id="@+id/SeekBarGreen" android:layout_width="wrap_content" android:layout_height="fill_parent"></SeekBar>
+<EditText android:text="" android:id="@+id/EditTextGreen" android:layout_width="wrap_content" android:layout_height="40dp"></EditText>
+</TableRow>
+
+<TableRow android:id="@+id/TableRowBlue" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginBottom="40dp">
+<TextView android:text="% Blue" android:id="@+id/TextViewBlue" android:layout_width="wrap_content" android:layout_height="fill_parent"></TextView>
+<SeekBar android:id="@+id/SeekBarBlue" android:layout_width="wrap_content" android:layout_height="fill_parent"></SeekBar>
+<EditText android:text="" android:id="@+id/EditTextBlue" android:layout_width="wrap_content" android:layout_height="40dp"></EditText>
+</TableRow>
+<Button android:text="OK" android:id="@+id/Button01" android:layout_height="wrap_content"></Button>
+</TableLayout>
+</LinearLayout>
