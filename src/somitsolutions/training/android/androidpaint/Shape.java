@@ -8,10 +8,11 @@ public class Shape extends Object{
 			private int[] color_rgb;
 			protected Path path_of_shape;
 			protected float strokeWidth;
-	    	
+			int mColor;
 			public Shape(){
 	    		//paint = new Paint();
 	    		path_of_shape = new Path();
+	    		
 	    		color_rgb = new int[3];
 	    		color_rgb[0] = 0;
 	    		color_rgb[1] = 0;
@@ -28,14 +29,22 @@ public class Shape extends Object{
 	    		path_of_shape = p;
 	    	}
 	    	
-	    	public void setrgb(int red, int green, int blue){
+	    	/*public void setrgb(int red, int green, int blue){
 	    		color_rgb[0] = red;
 	    		color_rgb[1] = green;
 	    		color_rgb[2] = blue;
+	    	}*/
+	    	
+	    	public void setrgb(int color){
+	    		mColor = color;
 	    	}
 	    	
-	    	public int[] getrgb(){
+	    	/*public int[] getrgb(){
 	    		return color_rgb;
+	    	}*/
+	    	
+	    	public int getrgb(){
+	    		return mColor;
 	    	}
 	    	
 	    	public void setStrokeWidth(float w){

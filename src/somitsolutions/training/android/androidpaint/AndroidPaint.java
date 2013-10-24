@@ -9,7 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-
+import yuku.ambilwarna.AmbilWarnaDialog;
+import yuku.ambilwarna.AmbilWarnaKotak;
+import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -66,7 +68,8 @@ public class AndroidPaint extends Activity {
 	private Menu mMenu = null;
 	private float BrushWidth;
 	
-	double[] color;
+	//double[] color;
+	int mColor;
 	Panel p;
 	int number_of_graphicObjects;
 	
@@ -96,11 +99,11 @@ public class AndroidPaint extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);       
         
-        color = new double[3];
+        //color = new double[3];
         
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         
-       
+       mColor = 0xff0000ff;
         
        //requestWindowFeature(Window.)
         
@@ -502,7 +505,7 @@ public boolean onOptionsItemSelected(MenuItem item){
 } 
 
 private void LaunchColorPicker(){
-	Intent launchcolorpicker = new Intent();
+	/*Intent launchcolorpicker = new Intent();
 	launchcolorpicker.setClassName("somitsolutions.training.android.androidpaint", "somitsolutions.training.android.androidpaint.ColorPicker");
 	launchcolorpicker.setAction("somitsolutions.training.android.androidpaint.android.intent.action.COLORPICKER");
 	launchcolorpicker.addCategory("CATEGORY_DEFAULT");
@@ -514,19 +517,32 @@ private void LaunchColorPicker(){
     }
     catch(ActivityNotFoundException e){
     	Log.e("IntentExample", "Activity could not be started...");
-    }   
+    }*/ 
+	int initialColor = 0xff0000ff;
+	AmbilWarnaDialog dialog = new AmbilWarnaDialog(this, initialColor,  new OnAmbilWarnaListener() {
+        public void onOk(AmbilWarnaDialog dialog, int color) {
+                // color is the color selected by the user.
+        	mColor = color;
+        }
+                
+        public void onCancel(AmbilWarnaDialog dialog) {
+                // cancel was selected by the user
+        }
+    });
+
+    dialog.show();
 }
 
 public void onActivityResult(int requestcode, int resultcode, Intent result ) {
 	
-	if(requestcode == REQUEST_CODE){
+	/*if(requestcode == REQUEST_CODE){
     	if(resultcode == RESULT_OK){
     		color[0] = (result.getDoubleArrayExtra("somitsolutions.training.android.colorpicker.color_of_the_shape"))[0];
     		color[1] = (result.getDoubleArrayExtra("somitsolutions.training.android.colorpicker.color_of_the_shape"))[1];
     		color[2] = (result.getDoubleArrayExtra("somitsolutions.training.android.colorpicker.color_of_the_shape"))[2];
     		
     	}
-	}
+	}*/
 }
 
 
@@ -786,10 +802,11 @@ public void onActivityResult(int requestcode, int resultcode, Intent result ) {
 	        			}*/
 	        			
 	        			if(colormenuclicked == false && shapemenuclicked == true){
-		        			currentGraphicObject.setrgb(100,100,100);	
+		        			currentGraphicObject.setrgb(mColor);	
 		        		}
 		        		if(colormenuclicked == true && shapemenuclicked == true){
-		        			currentGraphicObject.setrgb((int)color[0],(int)color[1],(int)color[2]);
+		        			//currentGraphicObject.setrgb((int)color[0],(int)color[1],(int)color[2]);
+		        			currentGraphicObject.setrgb(mColor);
 		        		}
 		        		
 		        		/*if(erasemenuclicked == true && colormenuclicked == false){
@@ -846,7 +863,8 @@ public void onActivityResult(int requestcode, int resultcode, Intent result ) {
 	        		//if colormenu is clicked then only change the color of the brush
 	        		//else take the color from InitializePaint
 	        		//if(colormenuclicked == true){
-	        			mPaint.setColor(Color.rgb(currentGraphicObject.getrgb()[0], currentGraphicObject.getrgb()[1], currentGraphicObject.getrgb()[2]));
+	        			//mPaint.setColor(Color.rgb(currentGraphicObject.getrgb()[0], currentGraphicObject.getrgb()[1], currentGraphicObject.getrgb()[2]));
+	        			mPaint.setColor(currentGraphicObject.getrgb());
 	        			mPaint.setStrokeWidth(currentGraphicObject.getStrokeWidth());
 	        		//}
 	        		
