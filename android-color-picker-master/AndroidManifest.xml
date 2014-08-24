@@ -8,6 +8,6 @@
 	<application>
 	</application>
 	<uses-sdk
-		android:minSdkVersion="13" />
+		android:minSdkVersion="3" />
 
 </manifest> 
