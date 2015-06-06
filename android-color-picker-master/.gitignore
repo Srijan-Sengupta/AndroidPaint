@@ -1,8 +1,0 @@
-*~
-*.apk
-tags
-default.properties
-local.properties
-proguard.cfg
-gen/
-bin/
